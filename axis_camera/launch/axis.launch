@@ -37,6 +37,10 @@
     <param name="ptz" value="$(arg enable_ptz)" />
 
     <node pkg="axis_camera" type="axis_camera_node" name="axis" />
+    <node pkg="ptz_control" type="ptz_pid_track.py" name="ptz-track"/>
+    <node pkg="ptz_control" type="ptz_track_control.py" name="ptz-control"/>
+    <node pkg="ptz_control" type="yolo_stream.py" name="yolo-stream"/>
+
 
     <node pkg="image_transport" type="republish" name="republish"
           args="compressed theora" if="$(arg enable_theora)">
