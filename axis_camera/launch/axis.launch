@@ -40,6 +40,8 @@
     <node pkg="ptz_control" type="ptz_pid_track.py" name="ptz-track"/>
     <node pkg="ptz_control" type="ptz_track_control.py" name="ptz-control"/>
     <node pkg="ptz_control" type="yolo_stream.py" name="yolo-stream"/>
+    <!-- TEST -->
+
 
 
     <node pkg="image_transport" type="republish" name="republish"
