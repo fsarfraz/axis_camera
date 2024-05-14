@@ -37,9 +37,14 @@
     <param name="ptz" value="$(arg enable_ptz)" />
 
     <node pkg="axis_camera" type="axis_camera_node" name="axis" />
-    <node pkg="ptz_control" type="ptz_pid_track.py" name="ptz-track"/>
-    <node pkg="ptz_control" type="ptz_track_control.py" name="ptz-control"/>
-    <node pkg="ptz_control" type="yolo_stream.py" name="yolo-stream"/>
+    <node pkg="ptz_control" type="ptz_pid_track.py" name="ptz_track"/>
+    <node pkg="ptz_control" type="ptz_track_control.py" name="ptz_control"/>
+    <node pkg="ptz_control" type="yolo_stream.py" name="yolo_stream"/>
+    <node pkg="nodelet" type="nodelet" name="standalone_nodelet" args="manager" output="screen"/>
+    <node pkg="nodelet" type="nodelet" name="Image2RTSPNodelet" args="load image2rtsp/Image2RTSPNodelet standalone_nodelet" output="screen">
+      <!-- Read the stream setup file -->
+      <rosparam command="load" file="$(find ros_rtsp)/config/stream_setup.yaml" />
+    </node>
     <!-- TEST 1 -->
 
 
